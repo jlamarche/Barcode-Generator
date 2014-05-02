@@ -17,21 +17,21 @@ Cocoa Barcodes is a set of classes (and a test application) for generating two-d
 
 You have a fair amount of control over the final appearance of the barcode, including the bar width (in 1/10 mil increments), bar height, font size, and captioning. The following barcode types are supported:
 
-Code 3 of 9
-Extended Code 3 of 9
-Code 128
-Interleaved 2 of 5
-Industrial 2 of 5
-Codabar
-PostNet?
-Modified Plessey
-Modified Plessey (hexadecimal)
-UPC-A
-UPC-E
-EAN-13
-EAN-8
-Royal Mail Barcode (also known as RM4SCC or CBC)
-Planet Barcode
-Japan Post Barcode
+- Code 3 of 9
+- Extended Code 3 of 9
+- Code 128
+- Interleaved 2 of 5
+- Industrial 2 of 5
+- Codabar
+- PostNet?
+- Modified Plessey
+- Modified Plessey (hexadecimal)
+- UPC-A
+- UPC-E
+- EAN-13
+- EAN-8
+- Royal Mail Barcode (also known as RM4SCC or CBC)
+- Planet Barcode
+- Japan Post Barcode
 
 Cocoa Barcodes is based on Barcode Generator, an open source Mac program which began its life as a test scaffold for a set of Cocoa classes I was writing. I did not initially intend to release it as a standalone program, but by the time I was done testing the code, it had the lion's share of the features available on other OS X barcode programs at the time so I decided to release it.
