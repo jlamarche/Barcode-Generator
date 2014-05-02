@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13D45a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
+            <connections>
+                <outlet property="delegate" destination="486" id="514"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <customObject id="381" customClass="NSApplication"/>
+        <window title="Barcode Generator" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="382">
+            <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="227" y="368" width="408" height="272"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
+            <view key="contentView" id="383">
+                <rect key="frame" x="0.0" y="0.0" width="408" height="272"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <popUpButton verticalHuggingPriority="750" id="384">
+                        <rect key="frame" x="61" y="112" width="259" height="26"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <popUpButtonCell key="cell" type="push" title="Code 3 of 9" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="400" id="385">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <menu key="menu" title="OtherViews" id="386">
+                                <items>
+                                    <menuItem title="Code 3 of 9" state="on" id="400"/>
+                                    <menuItem title="Code 128" id="393"/>
+                                    <menuItem title="Extended Code 3 of 9" id="402"/>
+                                    <menuItem title="Interleaved 2 of 5" id="401"/>
+                                    <menuItem title="Industrial 2 of 5" id="395"/>
+                                    <menuItem title="UPC-A" id="399"/>
+                                    <menuItem title="UPC-E" id="391"/>
+                                    <menuItem title="EAN-13" id="394"/>
+                                    <menuItem title="EAN-8" id="390"/>
+                                    <menuItem title="PostNet" id="398"/>
+                                    <menuItem title="Modified Plessey" id="397"/>
+                                    <menuItem title="Modified Plessey (Hex)" id="396"/>
+                                    <menuItem title="Codabar" id="392"/>
+                                    <menuItem title="Royal Mail Barcode (RM4SCC / CBC)" id="389"/>
+                                    <menuItem title="Planet Barcode" id="388"/>
+                                    <menuItem title="Japan Post Barcode" id="387"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                        <connections>
+                            <action selector="barcodeTypeChanged:" target="486" id="560"/>
+                        </connections>
+                    </popUpButton>
+                    <textField verticalHuggingPriority="750" id="403">
+                        <rect key="frame" x="64" y="82" width="184" height="22"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" drawsBackground="YES" id="404">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <action selector="goButtonActionPerformed:" target="486" id="561"/>
+                            <outlet property="nextKeyView" destination="432" id="535"/>
+                        </connections>
+                    </textField>
+                    <textField verticalHuggingPriority="750" id="405">
+                        <rect key="frame" x="17" y="118" width="42" height="17"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Type:" id="406">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" id="407">
+                        <rect key="frame" x="17" y="84" width="42" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Data:" id="408">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button toolTip="Selects whether a caption is printed." id="409">
+                        <rect key="frame" x="328" y="115" width="62" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <buttonCell key="cell" type="check" title="Caption" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="410">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="label"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="captionChanged:" target="486" id="562"/>
+                        </connections>
+                    </button>
+                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" id="411">
+                        <rect key="frame" x="240" y="51" width="19" height="27"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <stepperCell key="cell" continuous="YES" alignment="left" increment="0.10000000000000001" minValue="0.10000000000000001" maxValue="10" doubleValue="0.5" id="412"/>
+                        <connections>
+                            <action selector="heightChanged:" target="486" id="563"/>
+                        </connections>
+                    </stepper>
+                    <textField toolTip="Set the width in 1/1000th inch of the narrowest bar or gap width." verticalHuggingPriority="750" id="415">
+                        <rect key="frame" x="193" y="24" width="42" height="22"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" title="13.0" drawsBackground="YES" id="416">
+                            <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="0.0" negativeFormat="-0.0" hasThousandSeparators="NO" thousandSeparator="," id="417">
+                                <attributedString key="attributedStringForZero">
+                                    <fragment content="0.0"/>
+                                </attributedString>
+                                <decimal key="minimum" value="5.5"/>
+                                <decimal key="maximum" value="100"/>
+                            </numberFormatter>
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <action selector="widthChanged:" target="486" id="565"/>
+                            <outlet property="nextKeyView" destination="403" id="536"/>
+                        </connections>
+                    </textField>
+                    <button toolTip="Export the barcode image to a file." verticalHuggingPriority="750" id="422">
+                        <rect key="frame" x="303" y="44" width="91" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <buttonCell key="cell" type="push" title="Export" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" inset="2" id="423">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="exportButtonActionPerformed:" target="486" id="566"/>
+                        </connections>
+                    </button>
+                    <button toolTip="Copy this barcode to the clipboard." verticalHuggingPriority="750" id="427">
+                        <rect key="frame" x="303" y="12" width="91" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <buttonCell key="cell" type="push" title="Copy" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" inset="2" id="428">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="copyButtonActionPerformed:" target="486" id="568"/>
+                        </connections>
+                    </button>
+                    <customView toolTip="Feel free to drag this barcode image to another application." id="429" customClass="NKDBarcodeImageView">
+                        <rect key="frame" x="20" y="144" width="368" height="108"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </customView>
+                    <textField verticalHuggingPriority="750" id="430">
+                        <rect key="frame" x="253" y="84" width="67" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Font Size:" id="431">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField toolTip="Changes the caption font size." verticalHuggingPriority="750" id="432">
+                        <rect key="frame" x="325" y="82" width="42" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" title="6.0" drawsBackground="YES" id="433">
+                            <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="0.0" negativeFormat="-0.0" hasThousandSeparators="NO" thousandSeparator="," id="434">
+                                <attributedString key="attributedStringForZero">
+                                    <fragment content="0.0"/>
+                                </attributedString>
+                                <decimal key="minimum" value="4"/>
+                                <decimal key="maximum" value="50"/>
+                            </numberFormatter>
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <action selector="fontSizeChanged:" target="486" id="569"/>
+                            <outlet property="nextKeyView" destination="424" id="538"/>
+                        </connections>
+                    </textField>
+                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" id="435">
+                        <rect key="frame" x="372" y="79" width="19" height="28"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <stepperCell key="cell" continuous="YES" alignment="left" increment="0.5" minValue="4" maxValue="50" doubleValue="6" valueWraps="YES" id="436"/>
+                        <connections>
+                            <action selector="fontSizeChanged:" target="486" id="570"/>
+                        </connections>
+                    </stepper>
+                    <textField verticalHuggingPriority="750" id="418">
+                        <rect key="frame" x="17" y="26" width="171" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Bar Width in Mils:" id="419">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField toolTip="Set the barcode height (excluding caption) in inches" verticalHuggingPriority="750" id="424">
+                        <rect key="frame" x="193" y="54" width="42" height="22"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" title="0.5" drawsBackground="YES" id="425">
+                            <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="0.0" negativeFormat="-0.0" hasThousandSeparators="NO" thousandSeparator="," id="426">
+                                <attributedString key="attributedStringForZero">
+                                    <fragment content="0.0"/>
+                                </attributedString>
+                                <decimal key="minimum" value="0.1"/>
+                                <decimal key="maximum" value="10"/>
+                            </numberFormatter>
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <action selector="heightChanged:" target="486" id="567"/>
+                            <outlet property="nextKeyView" destination="415" id="537"/>
+                        </connections>
+                    </textField>
+                    <textField verticalHuggingPriority="750" id="420">
+                        <rect key="frame" x="17" y="54" width="171" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Bar Height in Centimeters:" id="421">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" id="413">
+                        <rect key="frame" x="240" y="19" width="19" height="27"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <stepperCell key="cell" continuous="YES" alignment="left" increment="0.10000000000000001" minValue="7.5" maxValue="100" doubleValue="13" id="414"/>
+                        <connections>
+                            <action selector="widthChanged:" target="486" id="564"/>
+                        </connections>
+                    </stepper>
+                </subviews>
+            </view>
+            <connections>
+                <outlet property="initialFirstResponder" destination="403" id="515"/>
+            </connections>
+        </window>
+        <menu title="MainMenu" systemMenu="main" id="437">
+            <items>
+                <menuItem title="Barcode Generator" id="443">
+                    <menu key="submenu" title="Barcode Generator" systemMenu="apple" id="444">
+                        <items>
+                            <menuItem title="About Barcode Generator" id="445">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="orderFrontStandardAboutPanel:" target="-2" id="541"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Preferences..." id="446">
+                                <connections>
+                                    <action selector="doPreferences:" target="486" id="545"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="451">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Services" id="447">
+                                <menu key="submenu" title="Services" systemMenu="services" id="448"/>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="452">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Hide Barcode Generator" keyEquivalent="h" id="449">
+                                <connections>
+                                    <action selector="hide:" target="-2" id="546"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Hide Others" id="453">
+                                <connections>
+                                    <action selector="hideOtherApplications:" target="-2" id="548"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Show All" id="455">
+                                <connections>
+                                    <action selector="unhideAllApplications:" target="-2" id="549"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="454">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Quit Barcode Generator" keyEquivalent="q" id="450">
+                                <connections>
+                                    <action selector="terminate:" target="-2" id="547"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="File" id="456">
+                    <menu key="submenu" title="File" autoenablesItems="NO" id="457">
+                        <items>
+                            <menuItem title="Page Setup..." keyEquivalent="P" id="458">
+                                <connections>
+                                    <action selector="runPageLayout:" target="-1" id="542"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Print..." keyEquivalent="p" id="459">
+                                <connections>
+                                    <action selector="printBarcode:" target="486" id="543"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Edit" id="463">
+                    <menu key="submenu" title="Edit" id="464">
+                        <items>
+                            <menuItem title="Undo" keyEquivalent="z" id="467">
+                                <connections>
+                                    <action selector="undo:" target="-1" id="551"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Redo" keyEquivalent="Z" id="479">
+                                <connections>
+                                    <action selector="redo:" target="-1" id="556"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="465">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Cut" keyEquivalent="x" id="468">
+                                <connections>
+                                    <action selector="cut:" target="-1" id="552"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Copy" keyEquivalent="c" id="466">
+                                <connections>
+                                    <action selector="copy:" target="-1" id="550"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Paste" keyEquivalent="v" id="477">
+                                <connections>
+                                    <action selector="paste:" target="-1" id="554"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Clear" id="469">
+                                <connections>
+                                    <action selector="clear:" target="-1" id="553"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Select All" keyEquivalent="a" id="478">
+                                <connections>
+                                    <action selector="selectAll:" target="-1" id="555"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="480">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Find" id="470">
+                                <menu key="submenu" title="Find" id="471">
+                                    <items>
+                                        <menuItem title="Find..." keyEquivalent="f" id="472"/>
+                                        <menuItem title="Find Next" keyEquivalent="g" id="476"/>
+                                        <menuItem title="Find Previous" keyEquivalent="d" id="475"/>
+                                        <menuItem title="Use Selection for Find" keyEquivalent="e" id="474"/>
+                                        <menuItem title="Scroll to Selection" keyEquivalent="j" id="473"/>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Spelling" id="481">
+                                <menu key="submenu" title="Spelling" id="482">
+                                    <items>
+                                        <menuItem title="Spelling..." keyEquivalent=":" id="483">
+                                            <connections>
+                                                <action selector="showGuessPanel:" target="-1" id="557"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Check Spelling" keyEquivalent=";" id="484">
+                                            <connections>
+                                                <action selector="checkSpelling:" target="-1" id="558"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Check Spelling As You Type" id="485">
+                                            <connections>
+                                                <action selector="toggleContinuousSpellChecking:" target="-1" id="559"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Window" id="438">
+                    <menu key="submenu" title="Window" systemMenu="window" id="439">
+                        <items>
+                            <menuItem title="Minimize" keyEquivalent="m" id="441">
+                                <connections>
+                                    <action selector="performMiniaturize:" target="-1" id="540"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="442">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Bring All to Front" id="440">
+                                <connections>
+                                    <action selector="arrangeInFront:" target="-1" id="539"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Help" id="460">
+                    <menu key="submenu" title="Help" id="461">
+                        <items>
+                            <menuItem title="Barcode Generator Help" keyEquivalent="?" id="462">
+                                <connections>
+                                    <action selector="showHelp:" target="-1" id="544"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+            </items>
+        </menu>
+        <customObject id="486" customClass="NKDBarcodeTestScaffoldController">
+            <connections>
+                <outlet property="ExportButton" destination="422" id="516"/>
+                <outlet property="HeightStepper" destination="411" id="517"/>
+                <outlet property="HeightText" destination="424" id="518"/>
+                <outlet property="barHeightLabel" destination="420" id="519"/>
+                <outlet property="barWidthLabel" destination="418" id="520"/>
+                <outlet property="barcodeImage" destination="429" id="521"/>
+                <outlet property="barcodeTypePopup" destination="384" id="522"/>
+                <outlet property="captionCheckbox" destination="409" id="523"/>
+                <outlet property="copyButton" destination="427" id="524"/>
+                <outlet property="dataText" destination="403" id="525"/>
+                <outlet property="fileFormatPopup" destination="489" id="526"/>
+                <outlet property="fontSizeStepper" destination="435" id="527"/>
+                <outlet property="fontSizeText" destination="432" id="528"/>
+                <outlet property="matrix" destination="508" id="529"/>
+                <outlet property="panel" destination="487" id="530"/>
+                <outlet property="prefPanel" destination="505" id="531"/>
+                <outlet property="saveDPIText" destination="503" id="532"/>
+                <outlet property="widthStepper" destination="413" id="533"/>
+                <outlet property="widthText" destination="415" id="534"/>
+            </connections>
+        </customObject>
+        <window title="Export..." allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="487">
+            <windowStyleMask key="styleMask" titled="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="296" y="490" width="318" height="100"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
+            <view key="contentView" id="488">
+                <rect key="frame" x="1" y="9" width="318" height="100"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <popUpButton verticalHuggingPriority="750" id="489">
+                        <rect key="frame" x="98" y="56" width="85" height="26"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <popUpButtonCell key="cell" type="push" title="TIFF" bezelStyle="rounded" alignment="left" lineBreakMode="clipping" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="493" id="490">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <menu key="menu" title="OtherViews" id="491">
+                                <items>
+                                    <menuItem title="TIFF" state="on" id="493"/>
+                                    <menuItem title="EPS" id="492"/>
+                                    <menuItem title="PDF" id="494"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                        <connections>
+                            <action selector="exportFileTypeChanged:" target="486" id="571"/>
+                        </connections>
+                    </popUpButton>
+                    <textField verticalHuggingPriority="750" id="495">
+                        <rect key="frame" x="17" y="62" width="79" height="17"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="File Format:" id="496">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button toolTip="Click here when settings reflect the export you desire." verticalHuggingPriority="750" id="497">
+                        <rect key="frame" x="220" y="12" width="84" height="32"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="push" title="Export" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="498">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="exportOkay:" target="486" id="572"/>
+                        </connections>
+                    </button>
+                    <button toolTip="Press here if you decide not to export this barcode image." verticalHuggingPriority="750" id="499">
+                        <rect key="frame" x="136" y="12" width="84" height="32"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="500">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="exportCancel:" target="486" id="573"/>
+                        </connections>
+                    </button>
+                    <textField verticalHuggingPriority="750" id="501">
+                        <rect key="frame" x="201" y="60" width="30" height="17"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="DPI:" id="502">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <comboBox verticalHuggingPriority="750" id="503">
+                        <rect key="frame" x="236" y="56" width="65" height="26"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" title="1200" drawsBackground="YES" numberOfVisibleItems="6" id="504">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <objectValues>
+                                <string>1200</string>
+                                <string>600</string>
+                                <string>300</string>
+                                <string>150</string>
+                                <string>75</string>
+                                <string>72</string>
+                            </objectValues>
+                        </comboBoxCell>
+                    </comboBox>
+                </subviews>
+            </view>
+        </window>
+        <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="505">
+            <windowStyleMask key="styleMask" titled="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="315" y="416" width="213" height="140"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
+            <view key="contentView" id="506">
+                <rect key="frame" x="1" y="9" width="213" height="140"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <box title="Bar Height" id="507">
+                        <rect key="frame" x="20" y="51" width="173" height="82"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <view key="contentView">
+                            <rect key="frame" x="2" y="2" width="169" height="62"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <matrix verticalHuggingPriority="750" allowsEmptySelection="NO" autosizesCells="NO" id="508">
+                                    <rect key="frame" x="21" y="12" width="110" height="38"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    <size key="cellSize" width="110" height="18"/>
+                                    <size key="intercellSpacing" width="4" height="2"/>
+                                    <buttonCell key="prototype" type="radio" title="Radio" imagePosition="left" alignment="left" inset="2" id="509">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <cells>
+                                        <column>
+                                            <buttonCell type="radio" title="Inches" imagePosition="left" alignment="left" state="on" inset="2" id="511">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <buttonCell type="radio" title="Centimeters" imagePosition="left" alignment="left" tag="1" inset="2" id="510">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </column>
+                                    </cells>
+                                    <connections>
+                                        <action selector="buttonCellClick:" target="486" id="574"/>
+                                    </connections>
+                                </matrix>
+                            </subviews>
+                        </view>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <font key="titleFont" metaFont="message"/>
+                    </box>
+                    <button verticalHuggingPriority="750" id="512">
+                        <rect key="frame" x="115" y="12" width="84" height="32"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="push" title="Okay" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="513">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="prefsOkay:" target="486" id="575"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+        </window>
+    </objects>
+</document>
