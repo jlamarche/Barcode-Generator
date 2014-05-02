@@ -11,7 +11,7 @@ The app was intended to be a test scaffold for a barcode framework. I never got 
 
 You are welcome to use the code for any uses without attribution or payment. It also comes with no warranty whatsoever. This code was written in the very early days of OS X and a lot has changed. Even if they hadn't, I was still pretty new to Objective-C and there are almost certainly some cases of "you really shouldn't do it like this" in here.
 
-Here's the original README contents:
+#Here are the original README contents:#
 
 Cocoa Barcodes is a set of classes (and a test application) for generating two-dimensional barcodes. It supports many of the more common one-dimensional linear barcodes in use today, allows you to export a barcode as a TIFF, EPS, or PDF image, to copy the barcode image to the pasteboard, or to drag it to any other application that accepts standard OS X PDF data from the pasteboard, including TextEdit?. You can also print barcodes directly to any supported printer. Please note that you may not be able to create readable barcodes at all bar widths allowed by a specification. For example, Code 3 of 9 allows a bar width of as small as 7.5 mils, but I haven't had much luck going smaller than 13 mils on ink jet printers.
 
