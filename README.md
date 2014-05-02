@@ -3,11 +3,11 @@ Barcode-Generator
 
 I'm putting this code up mostly as a historical curiosity, but also because it might be useful to somebody. Just be aware that this is old, old, old code.
 
-This was one of my earlier pieces of publicly released Cocoa Code. I started the switch from Mac Toolbox programming to Cocoa with Rhapsody DP3, but it was a slow transition. This project was started almost exactly 12 years to the day before the initial post here on GitHub. The oldest creation dates in the source code are May 1, 2002 and I am posting this on May 2, 2014. 
+This was one of my earlier pieces of publicly released Cocoa Code. I started the switch from Mac Toolbox programming to Cocoa with Rhapsody DP3, but it was a slow transition. I don't think I totally gave up on Toolbox and went full Cocoa until 2001 some time. The oldest creation dates in the source code are May 1, 2002, at which point, I was still a relatively green Cocoa programmer.
 
-I have converted this to ARC and corrected all of the errors, warnings, and analyzers issues except for a few deprecations around open/save dialogs that I didn't feel like tackling.
+Interestingly (to me, at least), this project was started almost exactly twelve years before I stumbled across the code. I am posting this on May 2, 2014, twelve years and one day after I created the original Barcode Generator Xcode project. This is a new Xcode project, though. It was easier to import all the files into a new Xcode project than it was to update the old project, which probably started as a Project Builder project that was upgraded over the years.
 
-The app was intended to be a test scaffold for a barcode framework. I never got around to creating an actual framework out of the code.
+I have converted the code to ARC and corrected all of the errors, warnings, and analyzers issues except for a few deprecations around open/save dialogs that I didn't feel like tackling because they still work fine.
 
 You are welcome to use the code for any uses without attribution or payment. It also comes with no warranty whatsoever. This code was written in the very early days of OS X and a lot has changed. Even if they hadn't, I was still pretty new to Objective-C and there are almost certainly some cases of "you really shouldn't do it like this" in here.
 
